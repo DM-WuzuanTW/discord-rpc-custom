@@ -24,14 +24,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: '20'
           cache: 'npm'
 
-      # Need to install windows-build-tools or Python for better-sqlite3 compilation if prebuilds are missing
-      # usually better-sqlite3 has prebuilds, but just in case.
-      
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build UI (Vite)
         run: npm run build
