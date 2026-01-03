@@ -25,9 +25,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install --ignore-scripts
+        run: npm ci
+        env:
+          npm_config_build_from_source: false
 
       - name: Rebuild Native Dependencies
         run: npx electron-builder install-app-deps
