@@ -1,74 +1,89 @@
 # Discord Custom RPC Manager
 
-專業級 Discord RPC 管理解決方案，專為 Windows 環境打造。
+![License](https://img.shields.io/github/license/DM-WuzuanTW/discord-rpc-custom)
+![Version](https://img.shields.io/github/v/release/DM-WuzuanTW/discord-rpc-custom)
 
-## 核心功能
+A professional-grade, desktop-based Discord Rich Presence (RPC) manager. Built for Windows with a focus on aesthetics, performance, and usability.
 
-- **視覺化管理**：現代化 UI 設計，完全圖形化操作。
-- **多設定檔支援**：可建立、儲存多組 RPC 設定，隨時切換。
-- **永久儲存**：使用 SQLite 資料庫，設定不會遺失。
-- **背景執行**：最小化至系統工作列 (System Tray)，不佔用桌面空間且持續運行 RPC。
-- **專業架構**：模組化程式碼設計，易於維護與擴充。
-- **無需安裝**：提供免安裝版 (Portable) 與安裝版 (Installer)。
+## ✨ Features
 
-## 技術架構
+- **Visual Config Manager**: Create, edit, and delete RPC configurations with a beautiful dark-themed UI.
+- **Persistent Storage**: All settings are saved automatically using a local SQLite database.
+- **Background Execution**: Minimizes to the System Tray to keep your RPC active without cluttering your desktop.
+- **Multiple Profiles**: Switch between different gaming or work statuses instantly.
+- **Rich Status Support**:
+  - Details & State text
+  - Large & Small Images (with tooltips)
+  - Interactive Buttons
+  - Elapsed/Fixed Timestamps
+- **Portable & Installer**: Available as a standard setup `.exe` or a portable single-file executable.
 
-本專案採用以下技術堆疊：
+## 🛠 Tech Stack
 
-- **Runtime**: Node.js (LTS)
-- **Framework**: Electron
-- **Frontend**: React + Vite + Vanilla CSS (Premium Dark Mode)
-- **Database**: better-sqlite3
+- **Core**: Node.js (LTS), Electron
+- **Frontend**: React, Vite, Vanilla CSS (Glassmorphism Design)
+- **Database**: better-sqlite3 (SQLite)
 - **RPC**: discord-rpc
-- **Packaging**: electron-builder
+- **ICONS**: Lucide React (No Emojis used)
 
-## 專案結構
+## 📂 Project Structure
 
 ```
 /src
-  /core          # RPC 核心邏輯 (Connection, Activity Management)
-  /database      # SQLite 資料庫封裝
-  /ui            # React 前端介面
-    /components  # UI 元件
-    /styles      # 全域樣式與變數
-  /services      # 背景服務與其他 Utilities
-  /main          # Electron 主程序 (IPC, Tray, Window)
-.github          # CI/CD設定
+  /core          # RPC Connection & Logic
+  /database      # SQLite Data Layer
+  /ui            # React Frontend
+  /main          # Electron Main Process & Tray
+  /services      # Background Services
 ```
 
-## 開發與建置說明
+## 🚀 Getting Started
 
-### 前置需求
+### Prerequisites
 - Node.js 18+
 - npm
 
-### 安裝依賴
+### Installation
 ```bash
+# Clone the repository
+git clone https://github.com/DM-WuzuanTW/discord-rpc-custom.git
+
+# Install dependencies
 npm install
 ```
 
-### 開發模式 (Local Development)
-同時啟動 React Dev Server 與 Electron：
+### Development
+Run the app in development mode with hot-reloading:
 ```bash
 npm run electron:dev
 ```
 
-### 產品打包 (Production Build)
-建置 Windows 執行檔 (包含 `.exe` 安裝檔與 Portable 免安裝版)：
+### Build
+Generate the production binaries (Installer + Portable):
 ```bash
 npm run dist
 ```
-輸出檔案位於 `dist-electron/` 目錄。
+Artifacts will be output to `dist-electron/`.
 
-## GitHub Actions 自動發佈
-本專案已設定 CI/CD 流程：
-1. Push code 到 GitHub。
-2. Action 自動觸發 Build。
-3. 若為 Tag (例如 `v1.0.0`)，會自動發布 Release 到 GitHub Releases 頁面。
+## 📦 Releases
 
-## 故障排除
-- **RPC 無反應**：請確認 Discord 桌面版已啟動。
-- **無法安裝依賴**：請確認 Windows Build Tools 已安裝 (若需編譯 native modules)。
+We use **GitHub Actions** for automated builds and releases.
 
----
-Designed by Antigravity Agent.
+1.  **Trigger**: Push a tag (e.g., `v1.0.0`).
+2.  **Action**: 
+    - Builds the application.
+    - Generates `Discord-RPC-Custom-Setup.exe` (Installer).
+    - Generates `Discord-RPC-Custom-Portable.exe` (Portable).
+    - Creates a GitHub Release with auto-generated changelogs.
+
+### Download Types
+- **Setup.exe**: Standard Windows installer. Updates automatically if configured.
+- **Portable.exe**: Single-file executable. No installation required, carry it on a USB drive.
+
+## 🤝 Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
