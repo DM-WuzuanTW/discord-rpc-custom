@@ -1,0 +1,80 @@
+{
+    "name": "discord-rpc-manager",
+    "productName": "Discord RPC Manager",
+    "version": "1.0.0",
+    "description": "Professional Discord Custom RPC Manager Tool",
+    "main": "src/main/index.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "start": "electron .",
+        "electron:dev": "concurrently \"npm run dev\" \"wait-on tcp:5173 && electron .\"",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "keywords": [
+        "discord",
+        "rpc",
+        "electron",
+        "tool"
+    ],
+    "author": "WuzuanTW",
+    "license": "MIT",
+    "dependencies": {
+        "better-sqlite3": "^9.4.0",
+        "clsx": "^2.1.0",
+        "discord-rpc": "^4.0.1",
+        "lucide-react": "^0.344.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.1",
+        "concurrently": "^8.2.2",
+        "electron": "^29.1.0",
+        "electron-builder": "^24.13.3",
+        "vite": "^5.1.4",
+        "wait-on": "^7.2.0"
+    },
+    "build": {
+        "appId": "com.wuzuantw.discordrpc",
+        "productName": "Discord RPC Manager",
+        "directories": {
+            "output": "dist-electron"
+        },
+        "files": [
+            "dist/**/*",
+            "src/main/**/*",
+            "src/core/**/*",
+            "src/database/**/*",
+            "src/services/**/*",
+            "src/config/**/*",
+            "src/utils/**/*",
+            "package.json"
+        ],
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                },
+                {
+                    "target": "portable",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "icon": "resources/icon.png"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true
+        }
+    }
+}
