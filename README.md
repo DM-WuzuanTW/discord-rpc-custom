@@ -7,7 +7,7 @@
 <p align="center">
   <strong>A custom Discord Rich Presence manager with a modern web interface</strong>
   <br>
-  <sub>自訂 Discord Rich Presence 管理器，附帶現代化網頁介面</sub>
+  自訂 Discord Rich Presence 管理器，附帶現代化網頁介面
 </p>
 
 <p align="center">
@@ -19,84 +19,67 @@
 
 ---
 
-## Features
+## Features / 功能特色
 
-- Custom Rich Presence with real-time live preview （即時預覽）
-- Discord asset images and external URL support （支援 Discord 資產圖片與外部連結）
-- Up to 2 custom buttons （最多 2 個自訂按鈕）
-- Multiple timestamp modes: elapsed, local time, custom （多種時間顯示模式）
+- Custom Rich Presence with real-time live preview
+  <br>自訂 Rich Presence 並即時預覽
+- Discord asset images and external URL support
+  <br>支援 Discord 資產圖片與外部連結
+- Up to 2 custom buttons
+  <br>最多 2 個自訂按鈕
+- Multiple timestamp modes: elapsed, local time, custom
+  <br>多種時間顯示模式：經過時間、當地時間、自訂
 - Multi-language UI — English, 繁體中文, 日本語
-- AES-256-CBC + HMAC-SHA256 token encryption （Token 加密保護）
-- Auto-save and auto-restore on restart （自動儲存，重啟恢復）
+  <br>多語言介面，自動偵測瀏覽器語言
+- AES-256-CBC + HMAC-SHA256 token encryption
+  <br>Token 加密保護
+- Auto-save and auto-restore on restart
+  <br>自動儲存，重啟後自動恢復
 
 ---
 
-## Quick Start
+## Quick Start / 快速開始
 
 ```bash
-# Clone the repository
+# Clone the repository / 複製專案
 git clone https://github.com/DM-WuzuanTW/discord-rpc-custom.git
 cd discord-rpc-custom
 
-# Install dependencies
+# Install dependencies / 安裝依賴
 npm install
 
-# Start the server
+# Start the server / 啟動伺服器
 npm start
 ```
 
 Then open `http://localhost:3000` in your browser.
+<br>開啟瀏覽器前往 `http://localhost:3000`
 
 ---
 
-## Usage
+## Usage / 使用說明
 
 1. Create an application at the [Discord Developer Portal](https://discord.com/developers/applications)
-   <br><sub>在 Discord Developer Portal 建立應用程式</sub>
+   <br>在 Discord Developer Portal 建立應用程式
 
 2. Note your **Application ID** and upload image assets under Rich Presence settings
-   <br><sub>記下 Application ID，並上傳圖片資產</sub>
+   <br>記下 Application ID，並上傳圖片資產
 
 3. Enter your **User Token** and **Application ID** in the web UI
-   <br><sub>在網頁介面中輸入 User Token 與 Application ID</sub>
+   <br>在網頁介面中輸入 User Token 與 Application ID
 
 4. Click **Auto Fetch** to load available assets
-   <br><sub>點選「自動讀取」載入圖片資產</sub>
+   <br>點選「自動讀取」載入圖片資產
 
 5. Configure your presence and click **Start RPC**
-   <br><sub>設定完成後，點選「啟動 RPC」</sub>
+   <br>設定完成後，點選「啟動 RPC」
 
 ---
 
-## Project Structure
+## Security / 安全性
 
-```
-discord-rpc-custom/
-  server.js                  -- Express server entry point
-  config/
-    database.js              -- SQLite database layer
-  controllers/
-    rpcController.js         -- Discord RPC core logic
-    settingsController.js    -- Settings API handler
-    proxyController.js       -- Image proxy with validation
-  routes/
-    apiRoutes.js             -- API route definitions
-  utils/
-    crypto.js                -- AES-256-CBC encryption utilities
-  public/
-    index.html               -- Web UI
-    css/style.css            -- Stylesheet
-    js/
-      main.js                -- Frontend logic
-      i18n.js                -- Internationalization (3 languages)
-```
-
----
-
-## Security
-
-| Measure | Details |
-|---------|---------|
+| Measure / 項目 | Details / 說明 |
+|----------------|----------------|
 | Token encryption | AES-256-CBC with HMAC-SHA256 integrity verification |
 | Encryption key | Auto-generated, stored in `secret.key` (git-ignored) |
 | Database | `database.sqlite` excluded from version control |
@@ -104,12 +87,13 @@ discord-rpc-custom/
 | Image proxy | Content-Type whitelist, protocol validation, timeout |
 | Request limits | Body size capped at 1MB |
 
-> **Warning**
+> **Warning / 警告**
 > This project uses a Discord user token (selfbot), which may violate Discord's Terms of Service. Use at your own risk.
 > <br>本專案使用 Discord User Token（selfbot），可能違反 Discord 服務條款，請自行承擔風險。
 
 ---
 
-## License
+## License / 授權
 
 Released under the [MIT License](LICENSE).
+<br>本專案以 MIT License 釋出。
