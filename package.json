@@ -1,0 +1,30 @@
+{
+    "name": "discord-rpc-custom",
+    "version": "1.0.0",
+    "description": "Custom Discord Rich Presence manager with web UI",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DM-WuzuanTW/discord-rpc-custom.git"
+    },
+    "keywords": [
+        "discord",
+        "rpc",
+        "rich-presence",
+        "selfbot"
+    ],
+    "author": "DM-WuzuanTW",
+    "license": "MIT",
+    "dependencies": {
+        "discord.js-selfbot-v13": "^3.4.0",
+        "express": "^4.18.2",
+        "sqlite3": "^5.1.7"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.3"
+    }
+}
