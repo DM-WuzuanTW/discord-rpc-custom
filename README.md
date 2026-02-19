@@ -7,13 +7,13 @@ Custom Discord Rich Presence manager with a modern web UI.
 
 ## Features
 
-- 🎮 Custom Rich Presence with real-time preview
-- 🖼️ Discord asset images & external URL support
-- 🔗 Up to 2 custom buttons
-- ⏱️ Multiple timestamp modes (elapsed / local / custom)
-- 🌐 Multi-language UI (繁體中文 / English / 日本語)
-- 🔒 AES-256-CBC token encryption with HMAC integrity
-- 💾 Auto-save & auto-restore on restart
+- Custom Rich Presence with real-time preview
+- Discord asset images & external URL support
+- Up to 2 custom buttons
+- Multiple timestamp modes (elapsed / local / custom)
+- Multi-language UI (繁體中文 / English / 日本語)
+- AES-256-CBC token encryption with HMAC integrity
+- Auto-save & auto-restore on restart
 
 ## Quick Start
 
