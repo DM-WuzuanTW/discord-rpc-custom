@@ -59,6 +59,13 @@ const LANG = {
         toastRpcStopped: 'RPC 已停止',
         toastStartFail: '啟動失敗',
         toastStopFail: '停止失敗',
+
+        sectionTokenCheck: 'Tokens 測試 (Debug)',
+        labelMultiTokens: '請輸入欲測試的 Tokens (每行一個)',
+        btnTestTokens: '開始測試',
+        errNoTokens: '請輸入至少一個 Token',
+        testingTokens: '測試中...',
+        testComplete: '測試完成',
     },
 
     'en': {
@@ -121,6 +128,13 @@ const LANG = {
         toastRpcStopped: 'RPC stopped',
         toastStartFail: 'Start failed',
         toastStopFail: 'Stop failed',
+
+        sectionTokenCheck: 'Tokens Test (Debug)',
+        labelMultiTokens: 'Enter Tokens to test (one per line)',
+        btnTestTokens: 'Start Test',
+        errNoTokens: 'Please enter at least one Token',
+        testingTokens: 'Testing...',
+        testComplete: 'Test complete',
     },
 
     'ja': {
@@ -183,6 +197,13 @@ const LANG = {
         toastRpcStopped: 'RPC を停止しました',
         toastStartFail: '起動に失敗しました',
         toastStopFail: '停止に失敗しました',
+
+        sectionTokenCheck: 'トークンテスト (Debug)',
+        labelMultiTokens: 'トークンを入力 (1行に1つ)',
+        btnTestTokens: 'テスト開始',
+        errNoTokens: '少なくとも1つのトークンを入力してください',
+        testingTokens: 'テスト中...',
+        testComplete: 'テスト完了',
     }
 };
 

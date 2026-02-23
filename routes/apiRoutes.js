@@ -11,5 +11,6 @@ router.post('/start', settingsController.startRPC);
 router.post('/stop', settingsController.stopRPC);
 router.get('/assets', (req, res) => rpcController.getAssets(req, res));
 router.get('/proxy', proxyController.proxyImage);
+router.post('/check-tokens', settingsController.checkTokens);
 
 module.exports = router;

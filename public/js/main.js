@@ -209,6 +209,66 @@ async function fetchAssets() {
     }
 }
 
+async function testTokens() {
+    const tokensText = document.getElementById('tokens_to_test').value;
+    const resultsDiv = document.getElementById('token_test_results');
+    const btnText = document.getElementById('testTokensText');
+
+    if (!tokensText.trim()) {
+        showToast(t('errNoTokens'), 'warning');
+        return;
+    }
+
+    const tokens = tokensText.split('\n').map(t => t.trim()).filter(Boolean);
+
+    btnText.textContent = t('testingTokens');
+    resultsDiv.style.display = 'block';
+    resultsDiv.innerHTML = `正在測試 ${tokens.length} 個 Tokens...\n\n`;
+
+    try {
+        const response = await fetch(`${API_URL}/check-tokens`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tokens })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            data.results.forEach((res, i) => {
+                const prefix = `[Token ${i + 1}] `;
+                let lineStr = prefix;
+                if (res.valid) {
+                    lineStr += `✅ 成功! 使用者: ${res.user} (ID: ${res.id})`;
+                } else {
+                    lineStr += `❌ 失敗! 原因: ${res.error}`;
+                }
+
+                const p = document.createElement('div');
+                p.textContent = lineStr;
+                p.style.marginBottom = '4px';
+                if (res.valid) {
+                    p.style.color = '#57F287'; // Green
+                } else {
+                    p.style.color = '#ED4245'; // Red
+                }
+                resultsDiv.appendChild(p);
+            });
+
+            const doneP = document.createElement('div');
+            doneP.textContent = '\n' + t('testComplete') + '\n';
+            resultsDiv.appendChild(doneP);
+            showToast(t('testComplete'), 'success');
+        } else {
+            throw new Error(data.error || 'Server error');
+        }
+    } catch (err) {
+        resultsDiv.textContent += `發生錯誤: ${err.message}`;
+        showToast(`Error: ${err.message}`, 'error');
+    } finally {
+        btnText.textContent = t('btnTestTokens');
+    }
+}
+
 async function startRPC() {
     try {
         await fetch(`${API_URL}/start`, { method: 'POST' });
